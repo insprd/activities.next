@@ -47,10 +47,10 @@ const uploadImageToS3 = async (
     tmpdir(),
     `${crypto.randomBytes(8).toString('hex')}.webp`
   )
-  const [metaData] = await Promise.all([
-    resizedImage.metadata(),
-    resizedImage.keepExif().toFile(tempFilePath)
-  ])
+const [metaData] = await Promise.all([
+  resizedImage.metadata(),
+  resizedImage.webp({ quality: 95, smartSubsample: true, nearLossless: true }).toFile(tempFilePath)
+])
 
   const contentType = 'image/webp'
   const timeDirectory = format(currentTime, 'yyyy-MM-dd')
