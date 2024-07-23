@@ -71,5 +71,3 @@ If you don't provide the database config, the database will persist in container
 in the path `/opt/activities.next/data.sqlite`. You can mount this file out when
 starting the container too.
 
-
-.
